@@ -1,7 +1,8 @@
 #!/bin/bash
-# TODO: adjust service account, project
-
+set -o allexport
+source .env
+set +o allexport
 
 gcloud compute ssh \
-    --zone "europe-central2-c" "marker-ocr-api" \
-    --project "halogen-basis-426411-d5"
+    --zone $ZONE $INSTANCE \
+    --project $PROJECT

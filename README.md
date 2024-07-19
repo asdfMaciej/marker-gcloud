@@ -1,6 +1,8 @@
 # Marker deployment for GCloud
 
-Provides a basic API for .pdf > .md OCR.
+Provides a basic HTTP API for .pdf > .md OCR.
+
+Uses a `n1-standard-2` machine with `Tesla T4` GPU running on a `Debian 12 Bookworm` image.
 
 ## Caveats 
 
@@ -20,6 +22,8 @@ You will have to explicitely request GPU access for your first usage on Google C
 
 In general, if you can start a Compute Engine machine via CLI and connect to it via SSH, your setup is enough.
 
+3. Create `.env` according to `.env.example`.
+
 ## Setup and usage
 
 1. Run `up.sh` to start the machine and run basic configuration.  **Note: you will be prompted twice for your SSH passphrase!** The SSH connection might fail if you wait too long before providing your password.
@@ -31,7 +35,7 @@ sudo su
 ./setup.sh
 ```
 
-Manual actions might be needed to fully setup the machine. For example, the machine tends to drop my SSH connection in middle of the setup, and it can be necessary to run `dpkg --configure -a'` to fix system packages. I haven't fixed this due to time constraints. 
+Manual actions might be needed to fully setup the machine. For example, the machine tends to drop my SSH connection in middle of the setup, and it can be necessary to run `dpkg --configure -a` to fix system packages. I haven't fixed this due to time constraints. 
 
 3. After setup, you can launch the web server:
 

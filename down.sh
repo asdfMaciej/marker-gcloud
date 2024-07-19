@@ -1,6 +1,8 @@
 #!/bin/bash
-# TODO: adjust service account, project
+set -o allexport
+source .env
+set +o allexport
 
-gcloud compute instances delete marker-ocr-api \
-    --zone=europe-central2-c \
-    --project=halogen-basis-426411-d5
+gcloud compute instances delete $INSTANCE \
+    --zone=$ZONE \
+    --project=$PROJECT
